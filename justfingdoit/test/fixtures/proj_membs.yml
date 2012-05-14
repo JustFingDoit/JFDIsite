@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  projects_id: 1
+  members_id: 1
+  details: MyText
+
+two:
+  projects_id: 1
+  members_id: 1
+  details: MyText
