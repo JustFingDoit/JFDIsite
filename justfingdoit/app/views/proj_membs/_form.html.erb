@@ -1,26 +1,17 @@
-<%= form_for @proj_memb, :html => { :class => 'form-horizontal' } do |f| %>
-  <div class="control-group">
-    <%= f.label :projects_id, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.number_field :projects_id, :class => 'number_field' %>
-    </div>
-  </div>
-  <div class="control-group">
-    <%= f.label :members_id, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.number_field :members_id, :class => 'number_field' %>
-    </div>
-  </div>
-  <div class="control-group">
-    <%= f.label :details, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.text_area :details, :class => 'text_area' %>
-    </div>
-  </div>
+<%= form_for(@proj_memb) do |f| %>
+  <% if @proj_memb.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@proj_memb.errors.count, "error") %> prohibited this proj_memb from being saved:</h2>
 
-  <div class="form-actions">
-    <%= f.submit nil, :class => 'btn btn-primary' %>
-    <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
-                proj_membs_path, :class => 'btn' %>
+      <ul>
+      <% @proj_memb.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="actions">
+    <%= f.submit %>
   </div>
 <% end %>
