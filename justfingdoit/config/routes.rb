@@ -1,7 +1,10 @@
 Justfingdoit::Application.routes.draw do
+  root :to => 'home#index'
+  
   resources :projects
   resources :blogs
   resources :members
+  
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
