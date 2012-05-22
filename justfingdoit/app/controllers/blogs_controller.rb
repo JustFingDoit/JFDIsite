@@ -1,4 +1,4 @@
-class BlogsController < ApplicationController
+class BlogsController < AdminController
   # GET /blogs
   # GET /blogs.json
   def index
