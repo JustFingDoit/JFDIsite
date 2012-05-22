@@ -30,6 +30,789 @@ body { padding-top: 60px; }
 
 body { background-image: url('/assets/cs_bg.png'); }
 
-h1 {
-	display: inline-block;
+@max-width: 1000px;
+
+@main-color: #39A0FA;
+@main-color-fade: fade(@main-color, 90%);
+@main-color-dark: darken(@main-color, 7.5%);
+@main-color-light: lighten(@main-color,12.5%);
+
+
+/* Do fancy reset shit */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, font, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	vertical-align: baseline;
+	background: transparent;
+}
+
+/* Start the REAL shit */
+
+body {
+	line-height: 1;
+}
+h1, h2, h3, h4, h5, h6 {	
+	clear: both;
+}
+ul {
+	list-style: none;
+}
+
+blockquote {
+	quotes: none;	
+}
+blockquote:before, blockquote:after {
+	content: '';
+	content: none;
+}
+del {
+	text-decoration: line-through;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+a img { border: none; }
+
+img { display: block; }
+
+input[type="submit"]::-moz-focus-inner {border:0;}
+input[type="submit"]::-webkit-focus-inner {border:0;}
+
+/* Quit doing fancy reset shit */
+
+body {
+	background: #fff;
+	padding: 0;
+	margin: 0;
+	font: 14px 'Trocchi', serif;
+	color: #aaa;	
+	background-size:100%;
+	background-attachment:fixed;
+	padding:0 20px;
+}
+
+b{
+	color:@main-color;
+	font-weight:normal;
+}
+
+a{
+	color:@main-color;
+	text-decoration:none;
+}
+
+section a:hover{
+	border-bottom:1px dotted @main-color;
+}
+.no-right{
+	margin-right:0 !important;
+}
+
+hr{
+	border-top:1px solid #E5E5E5;
+	border-bottom:none;
+	height:0;
+	overflow:hidden;
+}
+
+p{
+	font-size:1em;
+	line-height:1.5em;
+	margin-bottom:10px;
+}
+
+blockquote{
+	margin:20px 0;
+	font-size:1.3em;
+	line-height:1.5em;
+	border-top:1px solid @main-color-light;
+	border-bottom:1px solid @main-color-light;
+	padding:20px;
+	text-align:center;
+}
+
+/* Clearfix ----------- */
+
+/* Some clearfix code from HTML5 Boilerplate */
+.clearfix:before, .clearfix:after {
+	content: "\0020";
+	display: block;
+	height: 0;
+	visibility: hidden;
+}
+
+.clearfix:after {
+	clear: both;
+}
+
+.clearfix {
+	zoom: 1;
+}
+
+/* Typical shit */
+
+header{
+	max-width:@max-width;
+	width:100%;
+	margin:0 auto;
+	
+	&.front-page{
+		height:415px;
+	}
+}
+
+nav{
+	max-width:@max-width;
+	width:100%;
+	height:75px;
+	background:@main-color;
+	background:@main-color-fade;
+	margin:0 auto;
+	font-weight:normal;
+}
+
+section{
+	width:100%;
+	background:#fff;
+}
+
+footer{
+	max-width:@max-width;
+	width:100%;
+	background:@main-color;
+	margin:0 auto;
+	height:50px;
+	color:#fff;
+	line-height:50px;
+	
+	.content{
+		padding:0;
+		text-indent:20px;
+	}
+}
+
+/* Shit in the header */
+
+header{
+	
+	.header_background{
+		position:absolute;
+		top:0;
+		left:0;
+		height:160px;
+		width:100%;
+		background:url('bg.jpg') no-repeat center -100px;
+		z-index:-999;
+		background-width:100%;
+	}
+	
+	&.front-page .header_background{
+		height:415px;
+		background-attachment:fixed;
+	}
+	
+	&.contact .contact_background{
+		height:260px;
+	}
+	.contact_background{
+		position:absolute;
+		top:0;
+		left:0;
+		bottom:80px;
+		right:0;
+		z-index:-999;
+	}
+	
+	nav{
+		font-family: 'Oswald', sans-serif;
+		text-transform:uppercase;
+	
+		#logo{
+			line-height:75px;
+			width:100px;
+			float:left;
+			padding:0 20px 0 5px;
+			font-size:2em;
+			color:#fff;
+			font-family: 'Trocchi', serif;
+			text-transform:none;
+		}
+	
+		ul{
+			margin:0;
+			padding:0;
+			float:right;
+		
+			li{
+				float:left;
+				height:75px;
+				margin:0;
+				position:relative;
+
+	 			ul{
+					position:absolute;
+					left:0;
+					top:-99px;
+					.opacity;			
+					width:auto;
+					.transitions;
+					.opacity(0);
+				
+					li{
+						float:none;
+						width:200px;
+						background:@main-color;
+						background:@main-color-fade;
+						height:auto !important;
+			
+						a{
+							line-height:40px !important;
+						}
+					}
+			
+				}
+			
+				&:hover ul{
+					.opacity(1);
+					top:75px;
+				}
+			
+				a{
+					color:#fff;
+					text-decoration:none;
+					padding:0 30px;
+					display:block;
+					line-height:75px;
+					text-align:center;
+				
+					&.selected, &:hover{
+						background:@main-color-dark;
+					}
+				
+				}
+			}
+		}	
+		
+		.page_switcher{
+			margin:30px;
+			float:right;
+		}
+	}
+	
+	h1{
+		font-size:3em;
+		display:block;
+		margin:10px 2%;
+		font-family: 'Trocchi', serif;
+		font-weight:400;
+		color:#ccc;
+	}
+	
+	&.front-page h1{
+		text-align:center;
+		padding:0 !important;
+		
+		span:first-child{
+			margin-left:-30px;
+		}
+		
+		span:last-child{
+			margin-left:30px;
+		}
+	}
+	
+	&.contact h1{
+	  padding: 0 !important;
+		margin:80px 0 80px 2%;
+	} 
+
+	h1 span{
+		background:rgb(0,0,0);
+		background:rgba(0,0,0,0.8);
+		padding:5px 10px;
+		display:inline-block;
+	}
+
+}
+
+/* No more header shit */
+
+.content{
+	max-width:@max-width;
+	width:100%;
+	margin:0 auto;
+	padding:20px 0;
+}
+
+h2{
+	font-family: 'Trocchi', serif;
+	font-weight:400;
+	font-size:1.5em;
+	margin:0 0 20px;
+	padding:15px 0;
+	line-height:30px;
+	border-top:1px solid #E5E5E5;
+	border-bottom:1px solid #F2F2F2;
+	color:#666;
+}
+
+h3{
+	font-family: 'Oswald', sans-serif;
+	text-transform:uppercase;
+	font-weight:400;
+	color:#ccc;
+	text-align:center;
+}
+
+/* For shit like the about page BRO */
+
+.process{
+	padding-bottom:20px;
+ 		
+	div:hover i, div:hover h3{
+		color:@main-color;
+	}
+	
+	i{
+		cursor: default;
+		.transitions(.5s);
+		width:100%;
+		font-size:100px;
+		text-align:center;
+		margin:10px auto;
+		display:block;
+		color:#ddd;
+	}
+
+ 	h3{
+		.transitions(.5s);
+		margin-bottom:10px;
+		line-height:20px;
+		text-align:left;
+	}
+	
+	h3 span{
+		font-style:italic;
+		font-family:'Trocchi', Serif;
+		text-transform:none;
+		font-size:11px;
+		color:@main-color;
+	}
+
+  	p{
+		color:#999;
+		font-size:13px;
+		font-family:'Trocchi', serif;
+	}
+	
+	a.button{
+		background:@main-color;
+		color:#fff;
+		font-family: 'Oswald', sans-serif;
+		text-transform:uppercase;
+		font-weight:300;
+		padding:10px 0;
+		text-align:center;
+		display:block;
+		width:100%;
+		
+		&:hover{
+			border:none;
+		}
+	}
+}
+
+/* Portfolio */
+
+.project_container{
+
+	.project{
+		width:23.5%;
+		display:block;
+		margin:10px 0.75%;
+		min-height:100px;
+		overflow:hidden;
+		
+		a{
+			img{
+				width:100%;
+			}
+			
+			&:hover span{
+				bottom:0;
+			}
+			
+			span{
+				position:absolute;
+				bottom:-30px;
+				left:0;
+				right:0;
+				font-size:12px;
+				font-family: 'Oswald', sans-serif;
+				background:#000;
+				background:rgba(0,0,0,0.8);
+				text-transform:uppercase;
+				padding:5px;
+				color:#fff;
+				.transitions;
+				
+				
+				b{
+					float:right;
+				}
+			}
+		}
+	}
+}
+
+.controls-container{
+	position:relative;
+	margin-bottom:30px;
+	height:auto;
+	
+	a:hover{
+		border:none
+	}
+	
+	.project_gallery{
+		position:relative;
+	
+		li{
+			position:relative;
+			
+			img{
+				width:100%;
+				height:auto;
+			}
+		}
+	}
+}
+
+p.philosophy{
+	font-size:1.5em;
+	margin-bottom:20px;
+}
+
+.social{
+	&.social_list{
+		li{
+			a{
+				display:block;
+				padding:5px 10px;
+				color:#fff;
+				.rounded_corners;
+				margin:0 0 10px;
+			
+				i{
+					font-size:2em;
+					vertical-align:middle;
+					margin-right:10px;
+					color:#fff;
+				}
+			
+				&:hover{
+					border:none;
+				}
+			}
+		
+			a.facebook{
+				background:#3B5998;
+			}
+		
+			a.twitter{
+				background:#4099FF;
+			}
+		}
+	}
+	
+	a{
+		display:inline-block;
+		padding:0 7px;
+		.rounded_corners;
+		margin:0 0 10px;
+		overflow:hidden;
+		
+		color:#999;
+		
+		i{
+			font-size:4em;
+			vertical-align:middle;
+			.transitions;
+		}
+		
+		&:hover{
+			border:none;
+		}
+		
+		&.facebook:hover{
+			color:#3B5998;
+		}
+		
+		&.twitter:hover{
+			color:#4099FF;
+		}
+		
+		&.github:hover{
+			color:#666;
+		}
+	}
+}
+
+/* Components n Shit */
+
+form{
+	
+	display:block;
+	margin-top:20px;
+	label{
+		font-size:9px;
+		text-transform:uppercase;
+		color:#999;
+		margin:10px 0;
+		display:block;
+		cursor:pointer;
+	}
+
+	input[type="text"], textarea {
+		padding: 10px 5px;
+		display: block;
+		width: 100%;
+		margin-bottom: 10px;
+		-webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+		-moz-box-sizing: border-box; /* Firefox, other Gecko */
+		box-sizing: border-box; /* Opera/IE 8+ */
+		border-top:1px solid #ccc;
+		border-left: 1px solid #ccc;
+		border-right: 1px solid #ccc;
+		border-bottom: 1px solid #ddd;
+		.transitions;
+		font-family: Helvetica Neue, Helvetica, sans-serif;
+		font-size: 11px;
+		border-radius: 3px;
+	}
+
+	input[type="text"]:focus, textarea:focus{
+		box-shadow: 0 0 5px @main-color-dark;
+		border: 1px solid @main-color;
+		outline: 0;
+	}
+
+	input[type="submit"]{
+		border:none;
+		background:@main-color;
+		color:#fff;
+		font-family: 'Oswald', sans-serif;
+		text-transform:uppercase;
+		font-weight:300;
+		padding:10px 0;
+		text-align:center;
+		display:block;
+		width:100%;
+		font-size:1.2em;
+		
+		&:hover{
+			border:none;
+		}
+	}
+}
+
+
+.col-02,.col-1,.col-2,.col-3{
+	float:left;
+	margin-right:2%;
+}
+.col-02{
+	width:10.5%;
+	margin-right:1%;
+}
+.col-1{
+	width:23.5%;
+}
+.col-2{
+	width:49%;
+}
+.col-3{
+	width:74.5%;
+}
+.col-full{
+	width:100%;
+	float:left;
+}
+
+.transitions(@speed: .25s){
+	-webkit-transition: all @speed ease-in-out;
+	-moz-transition: all @speed ease-in-out;
+	-o-transition: all @speed ease-in-out;
+	-ms-transition: all @speed ease-in-out;
+	transition: all @speed ease-in-out;
+}
+.rounded_corners(@radius: 5px){
+	-webkit-border-radius:@radius;
+	-moz-border-radius:@radius;
+	border-radius:@radius;
+}
+.input_border{
+	border-top: 1px solid #dcdcde;
+	border-left: 1px solid #dcdcde;
+	border-right: 1px solid #dcdcde;
+	border-bottom: 1px solid #e7e7e9;
+}
+.opacity(@opacity: 0) {
+    @opacityPercentage: @opacity * 100;
+    opacity: @opacity;
+    -ms-filter: ~"progid:DXImageTransform.Microsoft.Alpha(opacity=(@{opacityPercentage}))"; 
+    filter: ~"alpha(opacity = (@{opacityPercentage}))" !important;
+}
+
+.isotope-item {
+  z-index: 2;
+}
+
+.isotope-hidden.isotope-item {
+  pointer-events: none;
+  z-index: 1;
+}
+
+.isotope,
+.isotope .isotope-item {
+  -webkit-transition-duration: 0.8s;
+     -moz-transition-duration: 0.8s;
+      -ms-transition-duration: 0.8s;
+       -o-transition-duration: 0.8s;
+          transition-duration: 0.8s;
+}
+
+.isotope {
+  -webkit-transition-property: height, width;
+     -moz-transition-property: height, width;
+      -ms-transition-property: height, width;
+       -o-transition-property: height, width;
+          transition-property: height, width;
+}
+
+.isotope .isotope-item {
+  -webkit-transition-property: -webkit-transform, opacity;
+     -moz-transition-property:    -moz-transform, opacity;
+      -ms-transition-property:     -ms-transform, opacity;
+       -o-transition-property:         top, left, opacity;
+          transition-property:         transform, opacity;
+}
+
+.isotope.no-transition,
+.isotope.no-transition .isotope-item,
+.isotope .isotope-item.no-transition {
+  -webkit-transition-duration: 0s;
+     -moz-transition-duration: 0s;
+      -ms-transition-duration: 0s;
+       -o-transition-duration: 0s;
+          transition-duration: 0s;
+}
+
+@media screen and (min-width: 490px) and (max-width: 750px) {
+	h1{font-size:2.1em !important;}
+	
+	.header_background,{
+		height:144px !important;
+	}
+	
+	.front-page{
+		height:auto !important;
+		
+		h1{
+			margin:20px 0 !important;
+		}
+		
+		& .header_background{
+			height:213px !important;
+		}
+	}
+	
+	.contact{
+		height:auto !important;
+		
+		h1{
+			margin-bottom:50px !important;
+		}
+		
+		& .contact_background{
+			height:221px !important; 
+		}
+	}
+	
+
+	header nav ul li a{
+		padding:0 10px !important;
+	}
+	
+	.project{
+		width:100% !important;
+		margin:0 0 10px !important;
+	}
+}
+
+@media screen and (min-width: 0px) and (max-width: 489px) {
+	#logo{
+		font-size:2em !important;
+	}
+	
+	h1{
+		font-size:1.5em !important;
+	}
+	
+	.header_background{
+		height:133px !important;
+	}
+	
+	.front-page{
+		height:auto !important;
+		
+		h1{
+			margin:20px 0 !important;
+			font-size:1em !important;
+		}
+		
+		& .header_background{
+			height:181px !important;
+		}
+	}
+	
+	.contact{
+		height:auto !important;
+		
+		h1{
+			margin-bottom:40px !important;
+		}
+		
+		& .contact_background{
+			height:193px !important; 
+		}
+	}
+			
+	.col-1,.col-2,.col-3{
+		width:100%;
+		float:none;
+	}
+	
+	nav ul{
+		display:none;
+	}
+	
+	nav select{
+		display:block !important;
+	}
+
+	.project{
+		width:100% !important;
+		margin:0 0 10px !important;
+	}
 }
