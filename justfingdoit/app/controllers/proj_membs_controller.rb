@@ -1,4 +1,4 @@
-class ProjMembsController < ApplicationController
+class ProjMembsController < AdminController
   # GET /proj_membs
   # GET /proj_membs.json
   def index

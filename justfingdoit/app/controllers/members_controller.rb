@@ -1,4 +1,4 @@
-class MembersController < ApplicationController
+class MembersController < AdminController
   # GET /members
   # GET /members.json
   def index

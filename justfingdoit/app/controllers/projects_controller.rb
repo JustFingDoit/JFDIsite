@@ -1,4 +1,4 @@
-class ProjectsController < ApplicationController
+class ProjectsController < AdminController
   # GET /projects
   # GET /projects.json
   def index

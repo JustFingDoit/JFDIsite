@@ -1,9 +1,13 @@
 Justfingdoit::Application.routes.draw do
   root :to => 'home#index'
+
+  get "logout" => "admin#destroy", :as => "logout"
+  get "login" => "admin#create", :as => "login"
   
   resources :projects
   resources :blogs
   resources :members
+  resources :admin
   
   # The priority is based upon order of creation:
   # first created -> highest priority.
