@@ -21,6 +21,30 @@ $(document).ready ->
     selected = $(this).find("option:selected")
     window.location = selected.attr("value")
 
+  tween = new Sequence()
+  menu = document.getElementById("navbar")
+  tween.addChild new Tween(menu.style, "width", Tween.regularEaseOut, 0, 100, 1, "%")
+  $(menu).width "0px"
+  i = 1
+
+  while i < 5
+    elem = document.getElementById("menu" + i)
+    console.log elem.text
+    tween.addChild new Tween(elem.style, "width", Tween.bounceEaseOut, 25, 85, 0.3, "px")
+    i++
+  tween.start()
+
+  bgtween = new Sequence()
+  bg = document.getElementById("header_background")
+  bgtween.addChild new OpacityTween(bg, Tween.bounceEaseIn, 20, 100, 4)
+  bgtween.start()
+
 jQuery.fn.center = ->
   @css "margin-top", ((($(this).parent().outerHeight() - @outerHeight()) - 75) / 2) + "px"
   this
+
+dumpThis = (a) ->
+  z = ""
+  for i of a
+    z += i + " : " + a[i] + "\n"
+  alert z
